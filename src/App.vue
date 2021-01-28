@@ -1,16 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <!--<Input array=todos/>
+    <Form array=todos listName="watching"/>
+    <Form array=todos listName="reading"/>
+    <Form array=todos listName="working"/>-->
+    <Simple listName="Todo"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import Form from './components/form/form.vue';
+//import Input from './components/input/input.vue';
+import Simple from './components/simple.vue';
+
+import { ref } from 'vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'App',
+    components: {
+        //Form,
+        //Input,
+        Simple
+    },
+    setup() {
+        // Yhteinen array, joka välitetään jokaiselle lapsikomponentille
+        const todos = ref([]);
+
+        return {
+            todos
+        }
+    },
 }
 </script>
 

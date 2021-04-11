@@ -42,13 +42,6 @@ export default {
     }
 }
 
-// TODO:
-// Luo yhteinen lista, johon kummallakin komponentilla on pääsy
-// TAI
-// Välitä luotu lista componenttiin, jossa ei ole pääsyä siihen
-// TAI
-// Tee äiti-komponenttiin lista, joka annetaan kummallekin
-
 </script>
 
 <style>

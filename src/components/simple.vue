@@ -8,7 +8,7 @@
     </form>
     <button @click="markAllDone()">Mark all done</button>
     <button @click="clearTodos()">Clear todos</button>
-    <ul>
+    <ul v-if="todos.length">
         <!-- :key on tapa merkitä elementti, jolla se voidaan eritellä muista elementeistä -->
         <!-- :key on lyhenne v-bind:key:stä -->
         <li v-for="(item, index) in todos" :key="index">
@@ -17,8 +17,8 @@
             <h3 :class="{ done: item.done }" @click="doneToggle(item)">
                 <span>{{ index + 1 }})</span>
                 {{ item.content }}
-                <button @click="removeTodo(index)">Remove</button>
             </h3>
+            <button @click="removeTodo(index)">X</button>
         </li>
     </ul>
     <div v-if="!todos.length">
@@ -48,7 +48,7 @@ export default {
             });
 
             // Input on data bindingin alaisuudessa, joten jos newTodo:n arvoa muutetaan muuttuu myös data bindatun elementin arvo
-            newTodo.value='';
+            newTodo.value = '';
         }
 
         function doneToggle(todo) {
@@ -86,8 +86,47 @@ export default {
 </script>
 
 <style>
+body {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 .done {
-    color: #567;
+    opacity: 0.6;
     text-decoration: line-through;
+}
+
+li {
+    display: block ruby;
+    width: 100%;
+}
+
+ul {
+    height: 70vh;
+    padding-left: 0px;
+    overflow-y: scroll;
+}
+
+h3 {
+    color: #000;
+}
+
+li h3 {
+    padding: 0 5px;
+    width: 50%;
+    text-align: left;
+    cursor: pointer;
+}
+
+button {
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+button, input {
+    border: 3px solid #000;
+    padding: 5px;
+    margin: 5px 5px;
+    border-radius: 5px;
 }
 </style>

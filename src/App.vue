@@ -1,5 +1,5 @@
 <template>
-    <img alt="Vue logo" src="./assets/logo.png">
+    <!--<img alt="Vue logo" src="./assets/logo.png">-->
     <!--<Input array=todos/>
     <Form array=todos listName="watching"/>
     <Form array=todos listName="reading"/>
